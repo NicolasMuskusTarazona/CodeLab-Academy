@@ -1,0 +1,74 @@
+name: Pruebas y despliegue en GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  # 1. Calidad: sintaxis de PHP y pruebas de humo de la API
+  test:
+    name: Pruebas de la API
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: shivammathur/setup-php@v2
+        with:
+          php-version: '8.3'
+          extensions: pdo_sqlite, mbstring
+
+      - name: Revisar sintaxis PHP
+        run: find src config public -name '*.php' -print0 | xargs -0 -n1 php -l
+
+      - name: Pruebas de humo de la API
+        run: node tests/smoke.mjs
+
+  # 2. Construcción: compila SASS, empaqueta y minifica el JavaScript
+  build:
+    name: Construir sitio estático
+    needs: test
+    if: github.event_name != 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+
+      - run: npm ci
+
+      - name: Generar _site
+        run: npm run build:site
+        env:
+          # Variable opcional del repositorio (Settings > Secrets and variables > Actions > Variables).
+          # Si no existe, el sitio usa el modo demostración (datos en memoria).
+          API_BASE: ${{ vars.API_BASE_URL }}
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+  # 3. Despliegue: publica el artefacto en GitHub Pages
+  deploy:
+    name: Publicar en GitHub Pages
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

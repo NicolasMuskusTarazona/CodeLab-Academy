@@ -1,0 +1,20 @@
+{
+  "name": "codelab-api",
+  "version": "1.0.0",
+  "description": "CodeLab Academy: API REST en PHP (MVC) con front-end Bootstrap + SASS",
+  "private": true,
+  "scripts": {
+    "sass": "sass --load-path=node_modules --quiet-deps --silence-deprecation=import --style=compressed --no-source-map scss/main.scss public/assets/css/main.css",
+    "sass:watch": "sass --load-path=node_modules --quiet-deps --silence-deprecation=import --watch scss/main.scss public/assets/css/main.css",
+    "serve": "php -S 127.0.0.1:8080 -t public public/index.php",
+    "start": "npm run sass && npm run serve",
+    "test": "node tests/smoke.mjs",
+    "build:site": "node scripts/build-site.mjs"
+  },
+  "devDependencies": {
+    "bootstrap": "5.3.8",
+    "esbuild": "^0.28.2",
+    "sass": "^1.77.0"
+  },
+  "type": "module"
+}

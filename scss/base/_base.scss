@@ -1,0 +1,24 @@
+// Estilos base y utilidades globales
+
+body {
+  font-family: $font-family-base;
+  min-height: 100vh;
+}
+
+h1,
+h2,
+h3 {
+  letter-spacing: -0.02em;
+}
+
+.text-brand {
+  color: $brand-primary;
+}
+
+// Bordes de campos inválidos/válidos devueltos por la API
+.form-control,
+.form-select {
+  &.is-invalid {
+    background-image: none;
+  }
+}

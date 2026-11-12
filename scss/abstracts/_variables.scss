@@ -1,0 +1,48 @@
+// =============================================================
+// Variables de diseño de CodeLab Academy
+// Se definen ANTES de importar Bootstrap para sobrescribir sus valores por defecto.
+// =============================================================
+
+// Paleta de marca
+$brand-primary: #0f766e;
+$brand-secondary: #f97316;
+$brand-dark: #0b1f2a;
+$brand-light: #f4f7f6;
+
+// Colores por nivel de curso (se usan en insignias)
+$level-colors: (
+  'basico': #16a34a,
+  'intermedio': #d97706,
+  'avanzado': #dc2626,
+);
+
+// Tipografía
+// Pila de fuentes del sistema: sin descargas externas ni parpadeo de texto (FOIT/FOUT)
+$font-family-base: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+$font-size-base: 1rem;
+
+// Espaciado y forma
+$radius-card: 0.75rem;
+$shadow-card: 0 0.25rem 1rem rgba($brand-dark, 0.08);
+$shadow-card-hover: 0 0.5rem 1.5rem rgba($brand-dark, 0.16);
+$transition-base: 0.2s ease-in-out;
+
+// Breakpoints propios (mapa) usados por el mixin respond-to
+$breakpoints: (
+  'sm': 576px,
+  'md': 768px,
+  'lg': 992px,
+  'xl': 1200px,
+);
+
+// Sobrescritura de variables de Bootstrap
+$primary: $brand-primary;
+$secondary: $brand-secondary;
+$dark: $brand-dark;
+$light: $brand-light;
+$body-bg: $brand-light;
+$body-color: $brand-dark;
+$border-radius: 0.5rem;
+$btn-border-radius: 0.5rem;
+$enable-shadows: false;
+$enable-dark-mode: false; // la interfaz no usa modo oscuro: evita generar sus variables CSS

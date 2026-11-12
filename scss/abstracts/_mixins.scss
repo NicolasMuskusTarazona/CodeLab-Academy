@@ -1,0 +1,58 @@
+// =============================================================
+// Mixins reutilizables
+// =============================================================
+@use 'sass:color';
+@use 'sass:map';
+
+// Media query mobile-first a partir del mapa $breakpoints
+@mixin respond-to($name) {
+  $width: map.get($breakpoints, $name);
+
+  @if $width {
+    @media (min-width: $width) {
+      @content;
+    }
+  } @else {
+    @error 'Breakpoint desconocido: #{$name}';
+  }
+}
+
+// Centrado con flexbox
+@mixin flex-center($direction: row) {
+  display: flex;
+  flex-direction: $direction;
+  align-items: center;
+  justify-content: center;
+}
+
+// Tarjeta con sombra y elevación al pasar el cursor
+@mixin card-elevated($hover: true) {
+  border: 0;
+  border-radius: $radius-card;
+  box-shadow: $shadow-card;
+  transition: transform $transition-base, box-shadow $transition-base;
+
+  @if $hover {
+    &:hover {
+      transform: translateY(-4px);
+      box-shadow: $shadow-card-hover;
+    }
+  }
+}
+
+// Insignia coloreada según el nivel del curso
+@mixin level-badge($color) {
+  background-color: rgba($color, 0.14);
+  color: color.adjust($color, $lightness: -8%);
+  border: 1px solid rgba($color, 0.35);
+  font-weight: 600;
+  text-transform: capitalize;
+}
+
+// Texto truncado a N líneas
+@mixin line-clamp($lines: 3) {
+  display: -webkit-box;
+  -webkit-line-clamp: $lines;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

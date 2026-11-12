@@ -1,0 +1,57 @@
+[
+ {
+  "id": 1,
+  "title": "Fundamentos de HTML y CSS",
+  "description": "Estructura semántica, selectores y diseño de páginas web desde cero.",
+  "level": "basico",
+  "hours": 24,
+  "price": 120000.0,
+  "active": true,
+  "created_at": "2026-10-25 12:00:00",
+  "updated_at": "2026-10-25 12:00:00"
+ },
+ {
+  "id": 2,
+  "title": "Bootstrap 5 en la práctica",
+  "description": "Sistema de rejilla, componentes y diseño responsivo con Bootstrap 5.3.",
+  "level": "basico",
+  "hours": 30,
+  "price": 150000.0,
+  "active": true,
+  "created_at": "2026-10-25 12:00:00",
+  "updated_at": "2026-10-25 12:00:00"
+ },
+ {
+  "id": 3,
+  "title": "SASS para interfaces escalables",
+  "description": "Variables, mixins, anidamiento y organización modular de estilos.",
+  "level": "intermedio",
+  "hours": 28,
+  "price": 180000.0,
+  "active": true,
+  "created_at": "2026-10-25 12:00:00",
+  "updated_at": "2026-10-25 12:00:00"
+ },
+ {
+  "id": 4,
+  "title": "API REST con PHP",
+  "description": "Diseño de rutas, métodos HTTP, códigos de estado y patrón MVC.",
+  "level": "intermedio",
+  "hours": 40,
+  "price": 260000.0,
+  "active": true,
+  "created_at": "2026-10-25 12:00:00",
+  "updated_at": "2026-10-25 12:00:00"
+ },
+ {
+  "id": 5,
+  "title": "Integración Full-Stack",
+  "description": "Comunicación entre front-end y back-end con validación y manejo de errores.",
+  "level": "avanzado",
+  "hours": 45,
+  "price": 320000.0,
+  "active": true,
+  "created_at": "2026-10-25 12:00:00",
+  "updated_at": "2026-10-25 12:00:00"
+ }
+]

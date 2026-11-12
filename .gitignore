@@ -1,0 +1,8 @@
+# Dependencias y artefactos generados (se reconstruyen con npm ci / npm run sass / npm run build:site)
+node_modules/
+_site/
+public/assets/css/main.css
+
+# Base de datos local (se crea sola con schema.sql y seed.sql)
+database/*.sqlite
+database/*.sqlite-journal

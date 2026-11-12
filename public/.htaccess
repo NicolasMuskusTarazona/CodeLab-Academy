@@ -1,0 +1,9 @@
+RewriteEngine On
+
+# Archivos y carpetas existentes (front-end estático) se sirven directo
+RewriteCond %{REQUEST_FILENAME} -f [OR]
+RewriteCond %{REQUEST_FILENAME} -d
+RewriteRule ^ - [L]
+
+# Todo lo demás pasa por el front controller
+RewriteRule ^ index.php [L]

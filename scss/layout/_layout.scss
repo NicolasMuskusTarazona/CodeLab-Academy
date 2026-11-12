@@ -1,0 +1,50 @@
+@use 'sass:color';
+
+// Encabezado, hero y pie de página
+
+.site-header {
+  background: linear-gradient(135deg, $brand-dark 0%, color.adjust($brand-primary, $lightness: -12%) 100%);
+  color: #fff;
+
+  .navbar-brand {
+    font-weight: 700;
+    font-size: 1.25rem;
+
+    span {
+      color: $brand-secondary;
+    }
+  }
+}
+
+.hero {
+  padding: 2.5rem 0 3.5rem;
+
+  h1 {
+    font-size: 1.85rem;
+    font-weight: 800;
+
+    @include respond-to('md') {
+      font-size: 2.5rem;
+    }
+  }
+
+  p {
+    max-width: 38rem;
+    opacity: 0.85;
+  }
+
+  .endpoint {
+    display: inline-block;
+    margin-top: 0.5rem;
+    padding: 0.25rem 0.75rem;
+    border-radius: 2rem;
+    background: rgba(#fff, 0.12);
+    font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+    font-size: 0.85rem;
+  }
+}
+
+.site-footer {
+  color: rgba($brand-dark, 0.65);
+  font-size: 0.875rem;
+}
