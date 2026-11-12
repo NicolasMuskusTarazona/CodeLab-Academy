@@ -116,3 +116,26 @@ Construcción local: `npm run build:site` (genera `_site/`).
 - `components/_course-card.scss`: anidamiento con `&` y bucle `@each` que genera las insignias por nivel.
 - `main.scss`: importa solo los módulos de Bootstrap que se usan y limita las utilidades generadas
   (CSS final ≈ 86 KB frente a 183 KB originales).
+
+## Optimización y despliegue
+
+CodeLab Academy incorpora mejoras de organización, mantenimiento y rendimiento del código fuente. El proyecto utiliza una arquitectura MVC en PHP, una base de datos SQLite y una interfaz responsiva desarrollada con Bootstrap 5.3.8 y SASS.
+
+### Mejoras implementadas
+
+- Separación de responsabilidades mediante una capa Presenter.
+- Organización del código JavaScript mediante módulos ES.
+- Reducción del tamaño de los estilos CSS generados.
+- Minificación de los recursos JavaScript para distribución.
+- Corrección de validaciones, consultas y paginación.
+- Incorporación de pruebas automatizadas para verificar el comportamiento de la aplicación.
+
+### Integración y despliegue continuo
+
+El repositorio incluye el archivo `.github/workflows/deploy.yml`, que define un proceso automatizado de pruebas, construcción y despliegue mediante GitHub Actions.
+
+Debido a que GitHub Pages permite alojar contenido estático, el proyecto contempla un modo demostración con datos en memoria. La API REST desarrollada en PHP requiere un servidor compatible para su ejecución.
+
+**Estado del despliegue:** Publicado en GitHub Pages.
+
+**Sitio publicado:** [CodeLab Academy](https://nicolasmuskustarazona.github.io/CodeLab-Academy/)
